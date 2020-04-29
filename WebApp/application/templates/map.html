@@ -57,6 +57,8 @@
       var map, heatmap;
       let lat = []
       let lon = []
+      let counter = 0
+      let x = 0
     
 
       function initMap() {
@@ -111,39 +113,49 @@
       // Heatmap data: 500 Points
       function getPoints() {
         var result = []
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) { 
-            //document.getElementById("demo").innerHTML = xhttp.responseText;
-            var lines = xhttp.responseText.split(/\r\n|\n/)
-            for (i = 1; i < lines.length - 1; i++){
-              var field = lines[i].split(",");
-              tempLat = parseFloat(field[0])
-              tempLon = parseFloat(field[1])
-              lat[i] = tempLat
-              lon[i] = tempLon
+        num = 0
+        while(num < 2){
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) { 
+              //document.getElementById("demo").innerHTML = xhttp.responseText;
+              var lines = xhttp.responseText.split(/\r\n|\n/)
+              for (i = 1; i < lines.length - 1; i++){
+                counter = counter + 1;
+                console.log("counter: ", counter)
+                
+                var field = lines[i].split(",");
+                tempLat = parseFloat(field[0])
+                tempLon = parseFloat(field[1])
+                lat[counter] = tempLat
+                lon[counter] = tempLon
+                
+              }
+
+              for (x ; x < counter; x++){
+                result[x] = new google.maps.LatLng(lat[x], lon[x])
+
+              }
+              
+            
               
             }
-            console.log("lat:", lat)
-
-            for (x = 0; x < lat.length; x++){
-              result[x] = new google.maps.LatLng(lat[x], lon[x])
-              console.log("results: ", result[x])
-
-            }
-            console.log("result: ", result[0])
-            
+          };
+          
+          xhttp.open("GET", "../static/coordinates/Jan", true)
+          xhttp.send();            
            
-            
-          }
-        };
-        xhttp.open("GET", "../static/coordinates/feb.csv", true)
-        xhttp.send();
-        for (x = 0; x < lat.length; x++){
-          result[x] = new google.maps.LatLng(lat[x], lon[x])
-          console.log(result[x])
 
+          
+          
+          num = num + 1
+
+         
         }
+        
+        console.log("result: ",result)
+        console.log('Lat: ', lat)
         
         return result
       }
