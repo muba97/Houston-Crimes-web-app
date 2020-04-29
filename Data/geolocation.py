@@ -4,7 +4,7 @@ import googlemaps
 
 
 def main():
-    months = ['Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+    months = ['Jun','Jul','Aug','Sep','Oct','Nov','Dec']
     csvfiles = ['feb.csv','mar.csv','apr.csv','may.csv','jun.csv','jul.csv','aug.csv','sep.csv','oct.csv','nov.csv','dec.csv']
     for i in range(len(months)):
         addresses(months[i],csvfiles[i])
@@ -31,14 +31,13 @@ def Premises(month, data):
             lon.append (geocode_result[0]['geometry']['location']['lng'])
         except:
             errors += 1
-        if temp >= 20:
-            break
+        
         
         print(temp)
        
     
     df = pd.DataFrame([lat,lon], index = ['Latitude','Longtitude']).T
-    df.to_csv(r'./coordinates/{}'.format(month), index = None, header= True)
+    df.to_csv(r'./coordinates/total.csv', mode = 'a', index = None, header= True)
     df = pd.DataFrame(lat, columns = ['Latitude'])
     df.to_csv(r'./latitude', index = False, header= True)
     df = pd.DataFrame(lon, columns = ['Longtitude'])
