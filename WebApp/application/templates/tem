@@ -1,0 +1,152 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#Janbtn').on("click",function(e){
+   $('#Jan').toggle('slow');
+  });
+  $('#Febbtn').on("click",function(e){
+   $('#Feb').toggle('slow');
+  });
+  $('#Marbtn').on("click",function(e){
+   $('#Mar').toggle('slow');
+  });
+  $('#Aprbtn').on("click",function(e){
+   $('#Apr').toggle('slow');
+  });
+  $('#Maybtn').on("click",function(e){
+   $('#May').toggle('slow');
+  });
+  $('#Junbtn').on("click",function(e){
+   $('#Jun').toggle('slow');
+  });
+  $('#Julbtn').on("click",function(e){
+   $('#Jul').toggle('slow');
+  });
+  $('#Augbtn').on("click",function(e){
+   $('#Aug').toggle('slow');
+  });
+  $('#Sepbtn').on("click",function(e){
+   $('#Sep').toggle('slow');
+  });
+  $('#Octbtn').on("click",function(e){
+   $('#Oct').toggle('slow');
+  });
+  $('#Novbtn').on("click",function(e){
+   $('#Nov').toggle('slow');
+  });
+  $('#Decbtn').on("click",function(e){
+   $('#Dec').toggle('slow');
+  });
+  $('#Allbtn').on("click",function(e){
+   $('#All').toggle('slow');
+  });
+});
+var ButtonContainer = document.getElementById("ButtonContainer");
+        var buttons = ButtonContainer.getElementsByClassName("button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+          });
+        }
+</script>
+
+<div id="ButtonContainer">
+    <button class="button active" id= "Allbtn"> all</button>
+    <button class="button" id="Janbtn">January</button>
+    <button class="button" id="Febbtn"> February</button>
+    <button class="button" id="Marbtn"> March</button>
+    <button class="button" id="Aprbtn"> April</button>
+    <button class="button" id="Maybtn"> May</button>
+    <button class="button" id="Junbtn"> June</button>
+    <button class="button" id="Julbtn">July</button>
+    <button class="button" id="Augbtn"> August</button>
+    <button class="button" id="Sepbtn"> September</button>
+    <button class="button" id="Octbtn"> October</button>
+    <button class="button" id="Novbtn"> November</button>
+    <button class="button" id="Decbtn"> December</button>
+  </div>
+
+<div class = "Row">
+    <div class = "column January" id="Jan"> 
+        <div class="content">
+            <img src="../static/offenseplots/JanOffenses.png" style="width:75%;" alt="January Offenses" id="Jan"/>
+        </div>
+    </div>
+    <div class = "column February" id="Feb"> 
+        <div class="content">
+            <img src="../static/offenseplots/FebOffenses.png" style="width:75%;"  alt="February Offenses" id="Feb"/>
+        </div>
+    </div>
+    <div class = "column March" id="Mar"> 
+        <div class="content">
+            <img src="../static/offenseplots/MarOffenses.png" style="width:75%;"  alt="March Offenses" id="Mar"/>
+        </div>
+    </div>
+    <div class = "column April" id="Apr"> 
+        <div class="content">
+            <img src="../static/offenseplots/AprOffenses.png" style="width:75%;"  alt="April Offenses" id="Apr"/>
+        </div>
+    </div>
+    <div class = "column May" id="May"> 
+        <div class="content">
+            <img src="../static/offenseplots/MayOffenses.png" style="width:75%;"  alt="Show/Hide Image" id="May"/>
+        </div>
+    </div>
+    <div class = "column June" id="Jun"> 
+        <div class="content">
+            <img src="../static/offenseplots/JunOffenses.png" style="width:75%;"  alt="Show/Hide Image" id="Jun"/>
+        </div>
+    </div>
+    <div class = "column July" id="Jul"> 
+        <div class="content">
+            <img src="../static/offenseplots/JulOffenses.png" style="width:75%;"  alt="Show/Hide Image" id="Jul"/>
+        </div>
+    </div>
+    <div class = "column August" id="Aug"> 
+        <div class="content">
+            <img src="../static/offenseplots/AugOffenses.png" style="width:75%;"  alt="Show/Hide Image" id="Aug"/>
+        </div>
+    </div>
+    <div class = "column September" id="Sep"> 
+        <div class="content">
+            <img src="../static/offenseplots/SepOffenses.png" style="width:75%;"  alt="Show/Hide Image" id="Sep"/>
+        </div>
+    </div>
+    <div class = "column October" id="Oct"> 
+        <div class="content">
+            <img src="../static/offenseplots/OctOffenses.png" style="width:75%;"  alt="Show/Hide Image" id="Oct"/>
+        </div>
+    </div>
+    <div class = "column November" id="Nov"> 
+        <div class="content">
+            <img src="../static/offenseplots/NovOffenses.png" style="width:75%;"  alt="Show/Hide Image" id="Nov"/>
+        </div>
+    </div>
+    <div class = "column December" id="Dec"> 
+        <div class="content">
+            <img src="../static/offenseplots/DecOffenses.png" style="width:75%;"  alt="Show/Hide Image" id="Dec"/>
+        </div>
+    </div>
+
+    
+    
+
+    </div>
+<div class = "column all" id= "All">
+    <div class="content">
+        <img src="../static/offenseplots/Assault.png" style="width:75%;" alt="Show/Hide Image"/>
+        <img src="../static/offenseplots/Burglary.png" style="width:75%;" alt="Show/Hide Image"/>
+        <img src="../static/offenseplots/Robbery.png" style="width:75%;" alt="Show/Hide Image"/>
+        <img src="../static/offenseplots/Theft.png" style="width:75%;" alt="Show/Hide Image"/>
+    </div>
+    
+
+
+    
+    
+    
+    
+</div>
+rgb(236, 206, 177)

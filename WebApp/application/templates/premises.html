@@ -1,0 +1,200 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    .show{
+        display: block;
+    }
+</style>
+<div class = "offense">
+    <p1>
+        There are visuals that showcase the 
+    </p1>
+</div>
+
+<div class=Container id="ButtonContainer">
+    <button class="button active" onclick="filterSelection('all')"> show all</button>
+    <button class="button" onclick="filterSelection('Street')"> Street</button>
+    <button class="button" onclick="filterSelection('Commercial')"> Commercial</button>
+    <button class="button" onclick="filterSelection('Residential')"> Residential</button>
+    <button class="button" onclick="filterSelection('Other')"> Others</button>
+    <button class="button" onclick="filterSelection('January')"> January</button>
+    <button class="button" onclick="filterSelection('February')"> February</button>
+    <button class="button" onclick="filterSelection('March')"> March</button>
+    <button class="button" onclick="filterSelection('April')"> April</button>
+    <button class="button" onclick="filterSelection('May')"> May</button>
+    <button class="button" onclick="filterSelection('June')"> June</button>
+    <button class="button" onclick="filterSelection('July')"> July</button>
+    <button class="button" onclick="filterSelection('August')"> August</button>
+    <button class="button" onclick="filterSelection('September')"> September</button>
+    <button class="button" onclick="filterSelection('October')"> October</button>
+    <button class="button" onclick="filterSelection('November')"> November</button>
+    <button class="button" onclick="filterSelection('December')"> December</button>
+  </div>
+<div class="row">
+    <div class="column Street">
+        <div class="content">
+            <img src="../static/Premisesplots/Street.png" class="center">
+            <h4>Monthly Street</h4>
+            
+        </div>
+        </div>
+    <div class="column Commercial">
+    <div class="content">
+            <img class="center" src="../static/Premisesplots/Commercial.png">
+            <h4>Monthly Commercial</h4>
+            
+        </div>
+        </div>
+    
+    <div class="column Residential">
+    <div class="content">
+            <img src="../static/Premisesplots/Residential.png" class="center">
+            <h4>Monthly Residential</h4>
+            
+        </div>
+        </div>
+    
+    <div class="column Other">
+    <div class="content">
+        <img src="../static/Premisesplots/Others.png" class="center">
+        <h4>Monthly Other</h4>
+            
+        </div>
+        </div>
+<div class="column January">
+    <div class="content">
+        <img src="../static/Premisesplots/Jan.png" class="center">
+        <h4>January</h4>
+    
+    </div>
+</div>
+<div class="column February">
+    <div class="content">
+        
+        <img src="../static/Premisesplots/FebO.png" class="center">
+        <h4>February</h4>
+        
+    </div>
+    </div>
+    <div class="column March">
+    <div class="content">
+        <img src="../static/Premisesplots/Mar.png" class="center">
+        <h4>March</h4>
+        
+    </div>
+    </div>
+    <div class="column April">
+    <div class="content">
+        <img src="../static/Premisesplots/Apr.png" class="center">
+        <h4>April</h4>
+        
+    </div>
+    </div>
+    <div class="column May">
+    <div class="content">
+        <img src="../static/Premisesplots/May.png" class="center">
+        <h4>May</h4>
+
+        
+        
+    </div>
+    </div>
+    <div class="column June">
+    <div class="content">
+        <img src="../static/Premisesplots/Jun.png" class="center">
+        <h4>June</h4>
+        
+    </div>
+    </div>
+    <div class="column July">
+    <div class="content">
+        <img src="../static/Premisesplots/Jul.png" class="center">
+        <h4>July</h4>
+        
+    </div>
+    </div>
+    <div class="column August">
+    <div class="content">
+        <img src="../static/Premisesplots/Aug.png" class="center">
+        <h4>August</h4>
+        
+    </div>
+    </div>
+    <div class="column September">
+    <div class="content">
+        <img src="../static/Premisesplots/Sep.png" class="center">
+        <h4>September</h4>
+        
+    </div>
+    </div>
+    <div class="column October">
+    <div class="content">
+        <img src="../static/Premisesplots/Oct.png" class="center">
+        <h4>October</h4>
+        
+    </div>
+    </div>
+    <div class="column November">
+    <div class="content">
+        <img src="../static/Premisesplots/Nov.png" class="center">
+        <h4>November</h4>
+        
+    </div>
+    </div>
+    <div class="column December">
+    <div class="content">
+        <img src="../static/Premisesplots/Dec.png" class="center">
+        <h4>December</h4>
+        
+    </div>
+    </div>
+    
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("column");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+}
+
+function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+}
+
+function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+    }
+    element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var ButtonContainer = document.getElementById("ButtonContainer");
+var buttons = ButtonContainer.getElementsByClassName("button");
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function(){ß
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    });
+}
+</script>
+{% endblock %}

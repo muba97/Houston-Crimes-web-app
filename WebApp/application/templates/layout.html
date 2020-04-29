@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
 <head>
-    <title>UTA - Home Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/css/main.css"/>
+    <title>Houston Crime Project</title>
+   <link rel="stylesheet" type = "text/css" href="../static/css/main.css/">
 </head>
 <body>
+    <header>
+        <div>
+            <div class = "logo">
+                <img src= "../static/picture/logo.png">
+            </div>
+            <ul>
+                <li><a href ="{{ url_for('index') }}" class="nav-link active">index</a></li>
+                <li><a href ="{{ url_for('Map') }}" class="nav-link active">Map</a></li>
+                <li><a href ="{{ url_for('premises') }}" class="nav-link active">Premises</a></li>
+                <li><a href ="{{ url_for('Offenses') }}" class="nav-link active">Offenses</a></li>
 
-<div class="container-fluid text-center top-container">
-</div>
-<div class="container">
-    {% include "includes/nav.html" %}
+            </ul>
+        </div>
+    </header>
+    <div>
+        {% block content %}
+
+        {% endblock %}
+    </div>
     
-    {% block content %}
-
-    {% endblock %}
-    <img src="../static/offenseplots/Assault.png">
-
-
-</div>
-    {% include "includes/footer.html" %}
 </body>
+
 </html>    

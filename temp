@@ -1,0 +1,26 @@
+function init() {
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) { 
+            console.log("ready state: ", xhttp.responseText)       
+            //document.getElementById("demo").innerHTML = xhttp.responseText;
+            var lines = xhttp.responseText.split(/\r\n|\n/)
+            console.log("lines: ", lines)
+            for (i = 1; i < lines.length - 1; i++){
+              var field = lines[i].split(",");
+              tempLat = parseFloat(field[0])
+              tempLon = parseFloat(field[1])
+              lat[i] = tempLat
+              lon[i] = tempLon
+            }
+            console.log("lat: ", lat)
+            console.log("lon: ", lon)
+            
+          }
+        };
+        xhttp.open("GET", "../static/coordinates/feb.csv", true)
+        xhttp.send();
+        
+      }
+      window.onload = init;

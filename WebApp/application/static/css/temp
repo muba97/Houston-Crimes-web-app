@@ -1,0 +1,106 @@
+<div class = "map">
+    <p1>
+        Whenever we move to a new area, we do research about it, such as looking at the schools, diversity and the crime rate of the area.
+        This web project was build to provide help to new Houstonians as people looking to move to a new area in houston, to showcase volume
+        of crimes in each area through heatmap the overall crimes as well seperate them into 
+    </p1>
+</div>
+
+
+<style>
+    #floating-panel {
+        border: 1px solid black;
+        outline: none;
+        padding: 12px 16px;
+        background-color: white;
+        margin-top: 5%;
+        cursor: pointer;
+    }
+    #floating-panel:hover{
+        background-color: #ddd;
+
+    }
+    #map {
+        height: 60%;
+    }
+</style>
+
+<div class = container id="floating-panel">
+    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+    <button onclick="changeGradient()">Change Gradient</button>
+    <button onclick="ChangeRadius()">Change Radius</button>
+    <button onclick="changeOpacity()">Change opacity</button>
+</div>
+<div id="map">
+</div>
+
+<script>
+var map, heatmap;
+
+function initMap(){
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: sanFrancisco,
+        zoom: 13,
+        mapTypeId: 'satellite'
+    });
+
+    heatmap = new google.maps.visualization.HeatmapLayer({
+        data: getPoints(),
+        map: map
+    });
+
+}
+
+function toggleHeatmap(){
+    heatmap.setMap(heatmap.getMap() ? null : map);
+
+}
+function changeGradient(){
+    var gradient = [
+        'rgba(0,255,255,0)',
+        'rgba(0,255,255,1)',
+        'rgba(0,191,255,1)',
+        'rgba(0,127,255,1)',
+        'rgba(0,63,255,1)',
+        'rgba(0,0,255,1)',
+        'rgba(0,0,223,1)',
+        'rgba(0,0,191,1)',
+        'rgba(0,0,159,1)',
+        'rgba(63,0,91,1)',
+        'rgba(127,0,63,1)',
+        'rgba(191,0,31,1)',
+        'rgba(255,0,0,1)',  
+    ]
+    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+}
+function changeRadius() {
+    heatmap.set('radius', heatmap.get('radius') ? null : 20);
+    
+}
+function changeOpacity(){
+    heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+}
+function getPoints() {
+    return [
+        new google.maps.LatLng(37.782, -122.447),
+        new google.maps.LatLng(37.782, -122.445),
+        new google.maps.LatLng(37.782, -122.443),
+        new google.maps.LatLng(37.782, -122.441),
+        new google.maps.LatLng(37.782, -122.439),
+        new google.maps.LatLng(37.782, -122.437),
+        new google.maps.LatLng(37.782, -122.435),
+        new google.maps.LatLng(37.785, -122.447),
+        new google.maps.LatLng(37.785, -122.445),
+        new google.maps.LatLng(37.785, -122.443),
+        new google.maps.LatLng(37.785, -122.441),
+        new google.maps.LatLng(37.785, -122.439),
+        new google.maps.LatLng(37.785, -122.437),
+        new google.maps.LatLng(37.785, -122.435)
+    ];
+}
+</script>
+
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVioVzKWyCnUQ_KtkDqFDv2bqf4Ho6QTc&libraries=visualization">
+</script>

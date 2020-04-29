@@ -1,16 +1,8 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1>Houston Crime Project</h1>
+<h1>
+    100k people move to Houston on the yearly bases. When an individual or family is moving to a new place having low crime rates is one of the highest priority but just checking the crime rate of the city wouldn’t give them the whole picture, I created a web app that would break down the crimes in offense and premises category as a heatmap of crimes committed in Houston. I wanted to use visualization to give them a better understanding on the types and volume of crimes in Houston.
+</h1>
 
-            {% if login %}
-            <h3>Let's get started.</h3>
-            {% else %}
-            <p>Already registered? </p>
-            {% endif %}
-
-        </div>
-    </div>
 {% endblock %}

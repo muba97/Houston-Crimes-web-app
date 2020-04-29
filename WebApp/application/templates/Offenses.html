@@ -1,0 +1,203 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+    .show{
+        display: block;
+    }
+</style>
+<div class = "offense">
+    <p1>
+    </p1>
+</div>
+
+<div class=Container id="ButtonContainer">
+    <button class="button active" onclick="filterSelection('all')"> show all</button>
+    <button class="button" onclick="filterSelection('Burglary')"> Burglary</button>
+    <button class="button" onclick="filterSelection('Assault')"> Assault</button>
+    <button class="button" onclick="filterSelection('Theft')"> Theft</button>
+    <button class="button" onclick="filterSelection('Robbery')"> Robbery</button>
+    <button class="button" onclick="filterSelection('January')"> January</button>
+    <button class="button" onclick="filterSelection('February')"> February</button>
+    <button class="button" onclick="filterSelection('March')"> March</button>
+    <button class="button" onclick="filterSelection('April')"> April</button>
+    <button class="button" onclick="filterSelection('May')"> May</button>
+    <button class="button" onclick="filterSelection('June')"> June</button>
+    <button class="button" onclick="filterSelection('July')"> July</button>
+    <button class="button" onclick="filterSelection('August')"> August</button>
+    <button class="button" onclick="filterSelection('September')"> September</button>
+    <button class="button" onclick="filterSelection('October')"> October</button>
+    <button class="button" onclick="filterSelection('November')"> November</button>
+    <button class="button" onclick="filterSelection('December')"> December</button>
+  </div>
+<div class="row">
+    <div class="column Burglary">
+        <div class="content">
+            <img src="../static/offenseplots/Burglary.png" class="center">
+            <h4>Monthly Burglary</h4>
+            
+        </div>
+        </div>
+    <div class="column Assault">
+    <div class="content">
+            <img class="center" src="../static/offenseplots/Assault.png">
+            <h4>Monthly Assault</h4>
+            
+        </div>
+        </div>
+    
+    <div class="column Theft">
+    <div class="content">
+            <img src="../static/offenseplots/Theft.png" class="center">
+            <h4>Monthly Theft</h4>
+            
+        </div>
+        </div>
+    
+    <div class="column Robbery">
+    <div class="content">
+            <img src="../static/offenseplots/Robbery.png" class="center">
+            <h4>Monthly Robbery</h4>
+            
+        </div>
+        </div>
+<div class="column January">
+    <div class="content">
+    <img src="../static/offenseplots/JanOffenses.png" class="center">
+    <h4>January</h4>
+    
+    </div>
+</div>
+<div class="column February">
+    <div class="content">
+        
+        <img src="../static/offenseplots/FebOffenses.png" class="center">
+        <h4>February</h4>
+        
+    </div>
+    </div>
+    <div class="column March">
+    <div class="content">
+        <img src="../static/offenseplots/MarOffenses.png" class="center">
+        <h4>March</h4>
+        
+    </div>
+    </div>
+    <div class="column April">
+    <div class="content">
+        <img src="../static/offenseplots/AprOffenses.png" class="center">
+        <h4>April</h4>
+        
+    </div>
+    </div>
+    <div class="column May">
+    <div class="content">
+        <img src="../static/offenseplots/MayOffenses.png" class="center">
+        <h4>May</h4>
+
+        
+        
+    </div>
+    </div>
+    <div class="column June">
+    <div class="content">
+        <img src="../static/offenseplots/JunOffenses.png" class="center">
+        <h4>June</h4>
+        
+    </div>
+    </div>
+    <div class="column July">
+    <div class="content">
+        <img src="../static/offenseplots/JulOffenses.png" class="center">
+        <h4>July</h4>
+        
+    </div>
+    </div>
+    <div class="column August">
+    <div class="content">
+        <img src="../static/offenseplots/AugOffenses.png" class="center">
+        <h4>August</h4>
+        
+    </div>
+    </div>
+    <div class="column September">
+    <div class="content">
+        <img src="../static/offenseplots/SepOffenses.png" class="center">
+        <h4>September</h4>
+        
+    </div>
+    </div>
+    <div class="column October">
+    <div class="content">
+        <img src="../static/offenseplots/OctOffenses.png" class="center">
+        <h4>October</h4>
+        
+    </div>
+    </div>
+    <div class="column November">
+    <div class="content">
+        <img src="../static/offenseplots/NovOffenses.png" class="center">
+        <h4>November</h4>
+        
+    </div>
+    </div>
+    <div class="column December">
+    <div class="content">
+        <img src="../static/offenseplots/DecOffenses.png" class="center">
+        <h4>December</h4>
+        
+    </div>
+    </div>
+    
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("column");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+}
+
+function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+}
+
+function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+    }
+    element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var ButtonContainer = document.getElementById("ButtonContainer");
+var buttons = ButtonContainer.getElementsByClassName("button");
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function(){ß
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    });
+}
+</script>
+
+
+
+{% endblock %}
